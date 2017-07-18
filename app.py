@@ -5,7 +5,7 @@ import base64
 import numpy as np
 from PIL import Image
 
-from tf import softmax_predict
+from tf import softmax_predict, sigmoid_5_layers_predict, relu_5_layers_predict
 
 app = Flask('flask-mnist-tensorflow')
 
@@ -33,7 +33,11 @@ def index():
 @app.route('/predict', methods=['POST'])
 def predict():
     img = decode_img()
-    return jsonify({'softmax': softmax_predict(img)[0].tolist()})
+    return jsonify({
+        'relu_5_layers': relu_5_layers_predict(img)[0].tolist(),
+        'sigmoid_5_layers': sigmoid_5_layers_predict(img)[0].tolist(),
+        'softmax': softmax_predict(img)[0].tolist(),
+    })
 
 
 if __name__ == '__main__':
