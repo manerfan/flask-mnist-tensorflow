@@ -25,7 +25,6 @@ def get_weight_variable(shape, regularizer=None):
 
     return weights
 
-
 def inference(X, regularizer):
     """
     定义神经网络前向传播过程

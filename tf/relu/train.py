@@ -35,7 +35,8 @@ def train(mnist):
     """
     with tf.name_scope('input'):
         # 输入
-        X = tf.placeholder(tf.float32, [None, INPUT_NODE], name='X')
+        X = tf.placeholder(tf.float32, [None, 28, 28, 1], name='X')
+        XX = tf.reshape(X, [-1, 784])
         # 正确输出
         Y_ = tf.placeholder(tf.float32, [None, OUTPUT_NODE], name='Y_')
 
@@ -44,7 +45,7 @@ def train(mnist):
 
     with tf.name_scope('output'):
         ## 预测输出
-        Ylogits = inference(X, regularizer)
+        Ylogits = inference(XX, regularizer)
         Y = tf.nn.softmax(Ylogits, name='predict')
 
     with tf.name_scope('loss'):
@@ -117,7 +118,7 @@ def main(argv=None):
         shutil.rmtree(model_dir)
     os.makedirs(model_dir)
 
-    mnist = mnist_data.read_data_sets(mnist_dir, one_hot=True)
+    mnist = mnist_data.read_data_sets(mnist_dir, one_hot=True, reshape=False)
     train(mnist)
 
 
