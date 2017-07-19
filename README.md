@@ -1,4 +1,5 @@
 # flask-mnist-tensorflow
+
 Handwritten digits classification from MNIST with TensorFlow
 
 本例使用python3.6开发
@@ -10,7 +11,9 @@ Handwritten digits classification from MNIST with TensorFlow
 
 
 ## 分类器
-本例训练了4中分类器：
+
+本例训练了4种分类器：
+
 1. 无隐藏层，激活函数为softmax
 
 2. 5个隐藏层，激活函数为sigmoid
@@ -19,9 +22,10 @@ Handwritten digits classification from MNIST with TensorFlow
 
 4. 2个 卷基层+池化层，1个全连接层
 
-   ​
+
 
 ## 安装依赖
+
 `pip install -r requirements.txt`
 
 
@@ -29,6 +33,7 @@ Handwritten digits classification from MNIST with TensorFlow
 ## 运行
 
 `python app.py`
+
 访问 http://localhost:4000
 
 
@@ -36,7 +41,9 @@ Handwritten digits classification from MNIST with TensorFlow
 ## 训练
 
 `python train.py`
+
 按照如下选择需要训练的分类器
+
 ```text
 Please Input the trainer:
 -------------------------   
